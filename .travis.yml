@@ -1,0 +1,18 @@
+sudo: required
+
+arch:
+  script:
+    - "./build.sh"
+
+script:
+  - curl -s https://raw.githubusercontent.com/mikkeloscar/arch-travis/master/arch-travis.sh | bash
+
+deploy:
+  provider: releases
+  api_key:
+    secure: cbhdpXsQ4G/ay91lUtCuSJ6fXI2K5nfvUpZrhOMbC4Y9Y3wQt+a6tHOmexDYL/eVTDGDbaljAn8y5a5yA3Nw4lTm7UHjzraPRFeL/xIqE9Py2Z4Wt/5U7EdEg47XPR+ftQGVbwFRJHT0k6Ihb+DRqamRH1li10aPyQbgx9g26UBKUXfnjy3ZzjIgSmS/VrI3nbO2ydsXUJ61yDaNyANRJi7pxR3XSAihOxweO7gKVrgc8fomGba0TOWqDOlemQ2kApdE9GY3G9C+aGvvK5apCpJXtUQMjNKzP2v9rOHmtC2dPHb6GUDFwpz5K+iDMVbvUol56yFE0tH7Oj/YslUaCuF+3/nWS6mAVJqiKijkCGpg4EebwsI/UnCePN9n+06T+tDgyhqvkYIHxicXZGqQyUyk0etjMAywQ487cCjPYqjC1QW7MVFlniEoK4YDRm2FlbVeWcRlbh2dCOACG3zbwAyDgSut082VftHD6ZLiZYsQV4EHD05IH16J5rrIKu8vN3t2RMLqi1hmlgkML+0zSvPMJL1DDp96fqEe3R4NwBcAauVw09cRvxbn6KUppto7zqTFTbxDprZ/gm+2TP9PmJSubUP2w0cG5BIoLW+BrsEkkXuu0dusinB+ZTZqyJGiRCpZ9S3ytOOojb+8lA7o/nwVnewUraocRctBEucHVAg=
+  file_glob: true
+  file: chromium-vaapi*.pkg.tar.xz
+  skip_cleanup: true
+  on:
+    repo: maximbaz/chromium-vaapi-bin
