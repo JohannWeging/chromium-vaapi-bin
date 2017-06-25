@@ -7,7 +7,7 @@ before_script:
   - mkdir $TRAVIS_BUILD_DIR/pkg
   - docker pull oblique/archlinux-pacaur
   - docker run --rm -d -v $TRAVIS_BUILD_DIR/pkg:/pkg --name archlinux-pacaur oblique/archlinux-pacaur /bin/bash -c 'tail -f /etc/resolv.conf'
-  - docker exec archlinux-pacaur /bin/bash -c 'pacman -S base base-devel --noconfirm'
+  - docker exec archlinux-pacaur /bin/bash -c 'pacman -Sy base base-devel --noconfirm'
   - docker exec archlinux-pacaur /bin/bash -c 'mkdir /build'
   - docker exec archlinux-pacaur /bin/bash -c 'chown aur:users /build'
   - docker exec archlinux-pacaur /bin/bash -c 'chown aur:users /pkg'
